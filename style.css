@@ -6,20 +6,19 @@ html, body {
 canvas {
   display: block;
 }
-h2{ 
-color:#7A87ED
 
-}
 .btn {
-  font-family: sans-serif;
   position: absolute;
   left: 1320px;
   top: 830px;
-
+  text-decoration: none;
+  color: #7A87ED;
+  font-family: sans-serif;
+  font-weight: 800;
   border-width: 2.5px;
   border-style: solid;
   border-color:#7A87ED;
-  padding: 10px 20px;
+  padding: 8px 18px;
   background-color: #F8EFDD;
 
   border-radius: 12px;
@@ -32,4 +31,6 @@ color:#7A87ED
   color: #F8EFDD;
 
   box-shadow:0 4px 8px 0 rgba(0,0,0,0.6)
+
+  
 }

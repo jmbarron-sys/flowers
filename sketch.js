@@ -37,4 +37,5 @@ function draw() {
   fill(255) //white text
   textSize (12);
   text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
+  
 }
