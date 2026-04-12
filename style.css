@@ -6,7 +6,30 @@ html, body {
 canvas {
   display: block;
 }
+h2{ 
+color:#7A87ED
+
+}
 .btn {
-  text-align: right;
   font-family: sans-serif;
+  position: absolute;
+  left: 1320px;
+  top: 830px;
+
+  border-width: 2.5px;
+  border-style: solid;
+  border-color:#7A87ED;
+  padding: 10px 20px;
+  background-color: #F8EFDD;
+
+  border-radius: 12px;
+
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  background-color: #7A87ED; /* blue */
+  color: #F8EFDD;
+
+  box-shadow:0 4px 8px 0 rgba(0,0,0,0.6)
 }
