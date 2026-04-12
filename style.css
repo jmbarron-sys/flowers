@@ -6,3 +6,7 @@ html, body {
 canvas {
   display: block;
 }
+.btn {
+  text-align: right;
+  font-family: sans-serif;
+}
