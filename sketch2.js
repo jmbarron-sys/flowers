@@ -2,6 +2,7 @@ let gif;
 let gif2;
 let gif3;
 let gif4;
+let gif5;
 let img; 
 let img2;
 let img3;
@@ -22,6 +23,7 @@ function preload() {
   gif2 = loadImage('img/flower2.gif');
   gif3 = loadImage('img/flower3.gif');
   gif4 = loadImage('img/flower4.gif');
+  gif5 = loadImage('img/cloud.gif');
   img = loadImage ('img/tree.png');
   img2=loadImage ('img/grass.png');
   img3=loadImage ('img/house.png');
@@ -44,7 +46,7 @@ function draw() {
   //set frame rate to 50
   frameRate(50); 
   //Cloud
-  image(img4,cloudOneX,-10,400,200);
+  image(gif5,cloudOneX,-10,400,200);
   //Moving cloud2
   image(img5,cloudOneX-1000,240,490,230)
   //Tree
