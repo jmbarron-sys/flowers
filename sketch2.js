@@ -16,7 +16,14 @@ let img10;
 let isHovering = false;
 //custom variable for x coordinate of clouds
 let cloudOneX = 40;
-
+let purple = {
+  x1: 1420,
+  y1: 458,
+  x2: 1440,
+  y2: 474,
+  x3: 1420,
+  y3: 490 
+}
 
 function preload() {
   gif = loadImage('img/flower1.gif');
@@ -117,7 +124,23 @@ function draw() {
   if (isHovering) {
   image(gif,50,580,220,400);
   }
-  
-  //Cursor
+//Cursor
  image(img10, mouseX, mouseY, 80,80);
+ //Triangle button
+  fill('purple');
+  triangle(purple.x1, purple.y1, purple.x2, purple.y2, purple.x3, purple.y3);
+  
+  if (mouseIsPressed) {
+    click();
+  }
+
+}
+
+function click() {
+  let button = dist(mouseX, mouseY, purple.x1, purple.y1);
+  if (button <= 50) {
+
+   window.open("third.html")
+    console.log("click!");
+  }
 }
