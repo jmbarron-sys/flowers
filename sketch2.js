@@ -31,7 +31,7 @@ function preload() {
   gif3 = loadImage('img/flower3.gif');
   gif4 = loadImage('img/flower4.gif');
   gif5 = loadImage('img/cloud.gif');
-  img = loadImage ('img/tree.png');
+  img = loadImage ('img/Tree.png');
   img2=loadImage ('img/grass.png');
   img3=loadImage ('img/house.png');
   img4=loadImage ('img/cloud.png');
