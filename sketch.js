@@ -44,11 +44,5 @@ function draw() {
   fill(255) //white text
   textSize (12);
   text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
-
-  //added a responsive function to resize the canvas and reposition elements when the window size changes - you have to refresh the page after resizing the window for it to work, but it will keep the elements in the correct position based on the new window size
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
-  
+ 
 }
