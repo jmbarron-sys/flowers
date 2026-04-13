@@ -5,6 +5,7 @@ let img5;
 let img6;
 let img7;
 let img8;
+let img9;
 let gif;
 let gif2;
 
@@ -16,12 +17,14 @@ function preload(){
  img6 = loadImage ('img/line2.png');
  img7 = loadImage ('img/butterfly.png');
  img8 = loadImage ('img/ladybug.png');
+ img9 = loadImage ('img/butterfly2.png');
  gif = loadImage ('img/welcome.gif');
  gif2 = loadImage ('img/flower.gif');
 }
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
+   noCursor();
 }
 
 function draw() {
@@ -34,6 +37,8 @@ function draw() {
   image(img6,1100,360,414,630)
   image(img7,1230,65,180,195)
   image(img8,420,680,140,200)
+    //Cursor
+ image(img9, mouseX, mouseY, 80,80); 
 
         //displays the x and y position of the mouse on the canvas
   fill(255) //white text
