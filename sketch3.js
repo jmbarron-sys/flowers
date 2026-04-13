@@ -4,10 +4,17 @@ let img3;
 let img4;
 let img5;
 let img6;
+let img7;
+let img8;
+let img9;
+let img10;
 let gif;
 let gif2;
 let gif3;
 let gif4;
+let gif5;
+let isClicked = false;
+let isHovering = false;
 let purple = {
   x1: 1420,
   y1: 458,
@@ -29,17 +36,28 @@ function preload () {
   gif2 = loadImage('img/flower6.gif');
   gif3 = loadImage('img/flower7.gif');
   gif4 = loadImage('img/flower8.gif');
+  gif5 = loadImage ('img/redflower.gif');
   img = loadImage ('img/grass2.png');
   img2 = loadImage ('img/tree2.png');
   img3 = loadImage ('img/sun.png');
   img4 = loadImage ('img/cloud4.png');
   img5 = loadImage ('img/cloud5.png');
   img6 = loadImage ('img/butterfly2.png');
-  
+  img7 = loadImage ('img/flower5.png');
+  img8 = loadImage ('img/flower6.png');
+  img9 = loadImage ('img/flower7.png');
+  img10 = loadImage ('img/flower8.png');
+
+
 }
 
 function draw() {
   background('#7A88ED');
+      //X,Y
+  fill("black") //white text
+  noStroke();
+  textSize (12);
+  text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
   //sets the x coordinate to the frame count
   //resets at left edge
   cloudOneX = frameCount % width
@@ -49,22 +67,36 @@ function draw() {
   image(img5,cloudOneX-1000,240,490,230)
   //Tree
   image(img2,900,80,373,630);
-  //Flower7 gif
-  image(gif3,390,580,210,300);
   //Flower8 gif
   image(gif4,1280,460,180,220);
+
+    //Flower 7
+  if (isClicked) {
+  image(gif5,390,580,210,300);
+  } else {
+    image(gif3,390,580,210,300);
+  }
+  
   //Grass
   image(img,0,643,windowWidth,260);
-  
   fill('#5D7B3D');
   noStroke();
   rect(0, 900, windowWidth, 50);
-  //Sun
-  image(img3,45,40,240,248);
-  //Flower5 gif
-  image(gif,45,600,255,355);
-  //Flower6 gif
-  image(gif2,700,600,260,350);
+
+   //Flower 5
+  if (mouseX > 85 && mouseX < 260 && mouseY > 660 && mouseY < 960) {
+    isHovering = true;
+  } else {
+    isHovering = false;
+  image(img7,45,630,255,355);
+  }
+     // Reveal gif if hovering
+  if (isHovering) {
+  image(gif,45,630,255,355);
+  }
+
+}
+
 //Cursor
  image(img6, mouseX, mouseY, 80,80);  
 
@@ -77,13 +109,16 @@ function draw() {
     click();
   }
 
-}
-
 function click() {
   let button = dist(mouseX, mouseY, purple.x1, purple.y1);
   if (button <= 50) {
 
    window.open("fourth.html")
     console.log("click!");
+  }
+}
+function mousePressed() {
+  if (mouseX > 435 && mouseX < 560 && mouseY > 615 && mouseY < 850) {
+    isClicked = true;
   }
 }
