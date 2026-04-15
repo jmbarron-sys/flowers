@@ -1,3 +1,4 @@
+let ratio;
 let img;
 let img3;
 let img4;
@@ -23,7 +24,10 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  const design_w = 1440;
+  const design_h = 1024;
+  ratio = min(windowWidth/design_w, windowHeight/design_h);
+  createCanvas(design_w*ratio,design_w*ratio);
    noCursor();
 }
 
@@ -31,7 +35,7 @@ function draw() {
   background ('#F6C94C');
   image(img,0,10,308,326);
   image(gif,240,389,1036,160);
-  image(gif2,710,304,380,670);
+  image(gif2,705,304,400,670);
   image(img4,770,-20,200,317)
   image(img5,0,500,470,470)
   image(img6,1100,360,414,630)
@@ -45,4 +49,10 @@ function draw() {
   textSize (12);
   text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
  
+}
+function windowResized() {
+  const design_w = 1440;
+  const design_h = 900;
+  ratio = min(windowWidth/design_w, windowHeight/design_h);
+  resizeCanvas(design_w*ratio,design_h*ratio);
 }
