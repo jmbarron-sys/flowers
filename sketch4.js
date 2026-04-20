@@ -2,12 +2,17 @@ var flowers = [];
 let index = 0;
 let img; 
 let img2;
-let img3;
-
+let purple = {
+  x1: 1420,
+  y1: 458,
+  x2: 1440,
+  y2: 474,
+  x3: 1420,
+  y3: 490 
+}
 function preload() {
   img = loadImage ('img/floor.png');
   img2 = loadImage ('img/text.png');
-  img3 = loadImage ('img/butterfly2.png');
   flowers[0] = loadImage ('img/group1.png');
   flowers[1] = loadImage ('img/group2.png');
   flowers[2] = loadImage ('img/group3.png');
@@ -15,7 +20,6 @@ function preload() {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
-   noCursor();
   
   btn = createButton("Generate");
   btn.size (140,50)
@@ -35,8 +39,26 @@ function draw() {
   //Group
   image(flowers[index],300, 300, 1000, 450);
 
-  //Cursor
- image(img3, mouseX, mouseY, 80,80); 
+   fill('purple');
+noStroke();
+triangle(purple.x1, purple.y1, purple.x2, purple.y2, purple.x3, purple.y3);
+ //Triangle button
+  fill('purple');
+  triangle(purple.x1, purple.y1, purple.x2, purple.y2, purple.x3, purple.y3);
+  
+  if (mouseIsPressed) {
+    click();
+  }
+
+}
+
+function click() {
+  let button = dist(mouseX, mouseY, purple.x1, purple.y1);
+  if (button <= 50) {
+
+   window.open("gallery.html")
+    console.log("click!");
+  }
 }
 function nextGenerate() {
   index = index + 1;
