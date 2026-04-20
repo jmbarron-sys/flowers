@@ -1,4 +1,4 @@
-let ratio;
+
 let img;
 let img3;
 let img4;
