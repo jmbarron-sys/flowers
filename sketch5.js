@@ -36,13 +36,12 @@ function preload () {
 function setup() {
   createCanvas(windowWidth, windowHeight);
     
-  btn = createButton("Pick a frame");
-  btn.size (140,40)
-  btn.position(690,880);
-  btn.mousePressed(nextGenerate1);
-  btn.style("color", "#7C1EBC"); 
-  btn.style("background-color", "#F8EFDE"); 
-  btn.style("font-size", "20px");
+btn3 = createButton("Pick a frame");
+btn3.size(140, 40);
+btn3.position(690, 880);
+btn3.mousePressed(nextGenerate1);
+
+btn3.class("btn3"); 
 }
 
 function draw() {

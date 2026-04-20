@@ -24,10 +24,7 @@ function preload(){
 }
 
 function setup() {
-  const design_w = 1440;
-  const design_h = 1024;
-  ratio = min(windowWidth/design_w, windowHeight/design_h);
-  createCanvas(design_w*ratio,design_w*ratio);
+  createCanvas(windowWidth, windowHeight);
    noCursor();
 }
 
