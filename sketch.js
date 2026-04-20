@@ -46,10 +46,5 @@ function draw() {
   textSize (12);
   text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
  
-}
-function windowResized() {
-  const design_w = 1440;
-  const design_h = 900;
-  ratio = min(windowWidth/design_w, windowHeight/design_h);
-  resizeCanvas(design_w*ratio,design_h*ratio);
+
 }
