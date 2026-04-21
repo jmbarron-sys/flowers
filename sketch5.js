@@ -2,11 +2,13 @@ var mainframe = [];
 var flowers = [];
 let index1 = 0;
 let index2 = 0;
+let btn;
 let img;
 let img2;
 let img3;
 let img4;
 let img5;
+let input, button, greeting;
 
 function preload () {
   img = loadImage ('img/background.png');
@@ -35,13 +37,27 @@ function preload () {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
-    
-btn3 = createButton("Pick a frame");
-btn3.size(140, 40);
-btn3.position(690, 880);
+//Pick a Frame
+btn3 = createButton("Select a frame");
 btn3.mousePressed(nextGenerate1);
-
-btn3.class("btn3"); 
+btn3.class("btn3");
+//Text input
+input = createInput();
+input.position(1158,880);
+input.style("border-radius", "12px");
+input.style("border-width", "2.5px");
+input.style("border-style", "solid");
+input.style("border-color", "#7D1EBC");
+input.style("background-color", "#F8EFDD");
+input.style("outline", "none");
+input.size(200, 40);
+//Submit button
+btn4 = createButton('Submit');
+  btn4.class("btn4");
+  btn4.mousePressed(greet);
+//Message display
+  greeting = createElement('h2', 'Your message...');
+  greeting.class("greeting");
 }
 
 function draw() {
@@ -55,17 +71,21 @@ function draw() {
   //Frame3
   image(img4,1180,150,240,250);
   //Frame4
-  image(img5,1070,540,340,304);
+  image(img5,1070,500,340,304);
   //Main fram index
-  image(mainframe[index1],440, 60, 620, 820);
+  image(mainframe[index1],500,90,540,740);
   //Flowers index
-  image(flowers[index2],625,220,270,490)
+  image(flowers[index2],675,250,220,400)
 
   //X,Y
   fill("black") //white text
   noStroke();
   textSize (12);
   text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
+
+   fill('#7A87ED');
+  rectMode(CORNER); // default: CORNER
+  rect(0, windowHeight-90, windowWidth,90);
 }
   //Generate frames when pressed
 function nextGenerate1() {
@@ -87,3 +107,18 @@ function nextGenerate() {
   } 
  }
 }
+ function greet() {
+  const message = input.value();
+  greeting.html(message);
+  input.value('');
+
+  for (let i = 0; i < 200; i++) {
+    push();
+    fill("#F8EFDD");
+    translate(random(width), random(height));
+    rotate(random(2 * PI));
+    text(message, 0, 0);
+    pop();
+  }
+}
+
