@@ -28,6 +28,15 @@ let purple = {
   x3: 1420,
   y3: 490 
 }
+let purple2 = {
+  x1: 91,
+  y1: 458,
+  x2: 71,
+  y2: 474,
+  x3: 91,
+  y3: 490 
+}
+
 
 function preload() {
   gif = loadImage('img/flower1.gif');
@@ -51,6 +60,7 @@ function preload() {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  noCursor();
 }
 
 function draw() {
@@ -62,7 +72,7 @@ function draw() {
   //Moving cloud2
   image(img5,cloudOneX-1000,240,490,230)
   //Tree
-  image(img,0,100,350,700);
+  image(img,10,60,400,700);
   //House
   image(img3,900,380,350,500)
   
@@ -117,12 +127,15 @@ function draw() {
   if (isHovering) {
   image(gif,50,580,220,400);
   }
-//Cursor
- image(img10, mouseX, mouseY, 80,80);
- //Triangle button
+ //Triangle button Foward
   fill('purple');
   triangle(purple.x1, purple.y1, purple.x2, purple.y2, purple.x3, purple.y3);
-  
+  //Triangle Back
+  fill('purple');
+  noStroke();
+  triangle(purple2.x1, purple2.y1, purple2.x2, purple2.y2, purple2.x3, purple2.y3);
+  //Cursor
+ image(img10, mouseX, mouseY, 80,80);
 }
 function click() {
   let button = dist(mouseX, mouseY, purple.x1, purple.y1);
@@ -142,7 +155,13 @@ function mousePressed() {
     // Triangle button click (your function logic)
   let button = dist(mouseX, mouseY, purple.x1, purple.y1);
   if (button <= 50) {
-    window.open("third.html");
+   window.location.replace("third.html");
+    console.log("click!");
+  }
+   let button2 = dist(mouseX, mouseY, purple2.x1, purple2.y1);
+  if (button2 <= 50) {
+
+   window.location.replace("index.html");
     console.log("click!");
   }
 }

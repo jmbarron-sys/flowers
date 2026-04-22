@@ -9,6 +9,14 @@ let img8;
 let img9;
 let gif;
 let gif2;
+let purple = {
+  x1: 1420,
+  y1: 458,
+  x2: 1440,
+  y2: 474,
+  x3: 1420,
+  y3: 490 
+}
 
 function preload(){
  img = loadImage ('img/worm.png');
@@ -45,6 +53,26 @@ function draw() {
   fill(255) //white text
   textSize (12);
   text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
- 
+ //Triangle button
+  fill('purple');
+  noStroke();
+  triangle(purple.x1, purple.y1, purple.x2, purple.y2, purple.x3, purple.y3);
+  //Cursor
+ image(img9, mouseX, mouseY, 80,80);
+}
+function click() {
+  let button = dist(mouseX, mouseY, purple.x1, purple.y1);
+  if (button <= 50) {
 
+   window.open.replace("second.html")
+    console.log("click!");
+  }
+}
+function mousePressed() {
+    // Triangle button click (your function logic)
+  let button = dist(mouseX, mouseY, purple.x1, purple.y1);
+  if (button <= 50) {
+   window.location.replace("second.html");
+    console.log("click!");
+  }
 }

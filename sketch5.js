@@ -9,6 +9,14 @@ let img3;
 let img4;
 let img5;
 let input, button, greeting;
+let purple2 = {
+  x1: 91,
+  y1: 458,
+  x2: 71,
+  y2: 474,
+  x3: 91,
+  y3: 490 
+}
 
 function preload () {
   img = loadImage ('img/background.png');
@@ -16,6 +24,7 @@ function preload () {
   img3 = loadImage ('img/frame2.png');
   img4 = loadImage ('img/frame3.png');
   img5 = loadImage ('img/frame4.png');
+  img6 = loadImage ('img/butterfly2.png');
   flowers[0] = loadImage ('img/b1.png');
   flowers[1] = loadImage ('img/b2.png');
   flowers[2] = loadImage ('img/b3.png');
@@ -37,6 +46,7 @@ function preload () {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  noCursor();
 //Pick a Frame
 btn3 = createButton("Select a frame");
 btn3.mousePressed(nextGenerate1);
@@ -86,6 +96,20 @@ function draw() {
    fill('#7A87ED');
   rectMode(CORNER); // default: CORNER
   rect(0, windowHeight-90, windowWidth,90);
+
+  //Triangle button
+  fill('purple');
+  noStroke();
+  triangle(purple2.x1, purple2.y1, purple2.x2, purple2.y2, purple2.x3, purple2.y3);
+  //Cursor
+ image(img6, mouseX, mouseY, 80,80);
+  
+  if (mouseIsPressed) {
+    click();
+  }
+
+
+  
 }
   //Generate frames when pressed
 function nextGenerate1() {
@@ -111,7 +135,7 @@ function nextGenerate() {
  function greet() {
   const message = input.value();
   greeting.html(message);
-  input.value('');
+  input.value();
 
   for (let i = 0; i < 200; i++) {
     push();
@@ -123,3 +147,11 @@ function nextGenerate() {
   }
 }
 
+function click() {
+  let button2 = dist(mouseX, mouseY, purple2.x1, purple2.y1);
+  if (button2 <= 50) {
+
+   window.location.replace("fourth.html");
+    console.log("click!");
+  }
+}
