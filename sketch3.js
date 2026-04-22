@@ -70,9 +70,10 @@ function draw() {
 
   //Sun
 push();
-translate(175, 180);
+imageMode(CENTER);
+translate(180, 180);
 rotate(angle);
-image(img3, 10, 40, 350, 360);
+image(img3, 0, 0, 280, 290);
 pop();
 
 angle = angle + 1;
