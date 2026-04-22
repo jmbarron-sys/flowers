@@ -3,6 +3,8 @@ let gif2;
 let gif3;
 let gif4;
 let gif5;
+let gif6;
+let gif7;
 let img; 
 let img2;
 let img3;
@@ -14,6 +16,8 @@ let img8;
 let img9;
 let img10;
 let isHovering = false;
+let isClicked = false;
+let isClick;
 //custom variable for x coordinate of clouds
 let cloudOneX = 40;
 let purple = {
@@ -31,6 +35,8 @@ function preload() {
   gif3 = loadImage('img/flower3.gif');
   gif4 = loadImage('img/flower4.gif');
   gif5 = loadImage('img/cloud.gif');
+  gif6 = loadImage('img/yellowflower.gif');
+  gif7 = loadImage('img/pinkflower.gif');
   img = loadImage ('img/tree.png');
   img2=loadImage ('img/grass.png');
   img3=loadImage ('img/house.png');
@@ -70,30 +76,18 @@ function draw() {
   //resets at left edge
   cloudOneX = frameCount % width
   
-  //Flower 2
-  if (mouseX > 385 && mouseX < 450 && mouseY > 470 && mouseY < 666) {
-    isHovering = true;
-  } else {
-    isHovering = false;
-  image(img7,340,450,170,250); 
-  }
-  // Reveal gif if hovering
-  if (isHovering) {
-  image(gif2,340,450,170,250)
-  }
-  
   //Flower 4
-  if (mouseX > 1290 && mouseX < 1380 && mouseY > 690 && mouseY < 840) {
-    isHovering = true;
+     if (isClicked) {
+   image(gif7,1260,650,160,250);
   } else {
-    isHovering = false;
-  image(img9,1260,650,160,250);
-  }
-  // Reveal gif if hovering
-  if (isHovering) {
   image(gif4,1260,650,160,250);
   }
-  
+  //Flower 2 
+   if (isClick) {
+   image(gif6,340,450,170,250);
+  } else {
+   image(gif2,340,450,170,250);
+  }
   //Grass
   image(img2,0,643,windowWidth,260);
   
@@ -129,17 +123,26 @@ function draw() {
   fill('purple');
   triangle(purple.x1, purple.y1, purple.x2, purple.y2, purple.x3, purple.y3);
   
-  if (mouseIsPressed) {
-    click();
-  }
-
 }
-
 function click() {
   let button = dist(mouseX, mouseY, purple.x1, purple.y1);
   if (button <= 50) {
 
    window.open("third.html")
+    console.log("click!");
+  }
+}
+function mousePressed() {
+  if (mouseX > 367 && mouseX < 505 && mouseY > 490 && mouseY < 670) {
+    isClick = true;
+  }
+  if (mouseX > 1288 && mouseX < 1370 && mouseY > 695 && mouseY < 855) {
+    isClicked = true;
+  }
+    // Triangle button click (your function logic)
+  let button = dist(mouseX, mouseY, purple.x1, purple.y1);
+  if (button <= 50) {
+    window.open("third.html");
     console.log("click!");
   }
 }

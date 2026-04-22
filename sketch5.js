@@ -78,7 +78,7 @@ function draw() {
   image(flowers[index2],675,250,220,400)
 
   //X,Y
-  fill("black") //white text
+  fill("black") 
   noStroke();
   textSize (12);
   text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
@@ -107,6 +107,7 @@ function nextGenerate() {
   } 
  }
 }
+//Message Output
  function greet() {
   const message = input.value();
   greeting.html(message);

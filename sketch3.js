@@ -1,3 +1,4 @@
+let angle = 0;
 let img;
 let img2;
 let img3;
@@ -15,7 +16,7 @@ let gif4;
 let gif5;
 let gif6;
 let isClicked = false;
-let isClick
+let isClick;
 let isHovering = false;
 let purple = {
   x1: 1420,
@@ -33,6 +34,8 @@ let cloudOneX = 40;
 function setup() {
   createCanvas(windowWidth, windowHeight);
    noCursor();
+  angleMode(DEGREES);
+
 }
 function preload () {
   gif = loadImage('img/flower5.gif');
@@ -64,11 +67,22 @@ function draw() {
   text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
   //sets the x coordinate to the frame count
   //resets at left edge
+
+  //Sun
+push();
+translate(175, 180);
+rotate(angle);
+image(img3, 10, 40, 350, 360);
+pop();
+
+angle = angle + 1;
+
   cloudOneX = frameCount % width
   //Cloud
   image(img4,cloudOneX,40,400,200);
   //Moving cloud2
   image(img5,cloudOneX-1000,240,490,230)
+
   //Tree
   image(img2,900,80,373,630);
 
