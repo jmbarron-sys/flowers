@@ -68,7 +68,7 @@ function draw() {
   //sets the x coordinate to the frame count
   //resets at left edge
 
-  //Sun
+//Sun rotating
 push();
 imageMode(CENTER);
 translate(180, 180);

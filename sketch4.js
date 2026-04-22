@@ -2,6 +2,7 @@ var flowers = [];
 let index = 0;
 let img; 
 let img2;
+let gif;
 let purple = {
   x1: 1420,
   y1: 458,
@@ -13,6 +14,7 @@ let purple = {
 function preload() {
   img = loadImage ('img/floor.png');
   img2 = loadImage ('img/text.png');
+  gif = loadImage ('img/textp4.gif');
   flowers[0] = loadImage ('img/group1.png');
   flowers[1] = loadImage ('img/group2.png');
   flowers[2] = loadImage ('img/group3.png');
@@ -21,13 +23,9 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   
-  btn = createButton("Generate");
-  btn.size (140,50)
-  btn.position(1300,800);
-  btn.mousePressed(nextGenerate);
-  btn.style("color", "#7C1EBC"); 
-  btn.style("background-color", "#F8EFDE"); 
-  btn.style("font-size", "20px");
+btn5 = createButton("Click Here");
+btn5.mousePressed(nextGenerate);
+btn5.class("btn5");
 }
 
 function draw() {
@@ -35,7 +33,7 @@ function draw() {
   //Floor
   image(img,-8,630,1540,400);
   //Text
-  image(img2,0,-160,1224,590);
+  image(gif,20,40,1100,80);
   //Group
   image(flowers[index],300, 300, 1000, 450);
 

@@ -111,3 +111,31 @@ canvas {
     transform: translateX(-50%);
     text-align: center;
 }
+.btn5 {
+  position: absolute;
+  top: 820px;
+  left: 740px;
+  text-decoration: none;
+  width: 120px;
+  height: 46px;
+  color: #7D1EBC;
+  font-family: sans-serif;
+  font-weight: 800;
+  border-width: 2.5px;
+  border-style: solid;
+  border-color:#7D1EBC;
+  padding: 8px 18px;
+  background-color: #F8EFDD;
+    border-radius: 12px;
+
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  20%  { opacity: 5; }
+  40%  { opacity: 0; }
+  60%  { opacity: 5; }
+  80% { opacity: 0; }
+  100% { opacity: 5; }
+}
