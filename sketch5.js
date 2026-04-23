@@ -17,8 +17,10 @@ let purple2 = {
   x3: 91,
   y3: 490 
 }
-//Message Greeting
-let messageText = "Your message will appear here";
+//this is a global variable for your color picker for your text color and your message
+let colorPicker;
+let currentMessage = "Your message will appear here";
+let currentColor = "#7D1EBC";
 
 function preload () {
   img = loadImage ('img/background.png');
@@ -80,7 +82,18 @@ input.size(200, 40);
 btn4 = createButton('Submit');
 btn4.class("btn4");
 btn4.mousePressed(greet);
+  //this is the color picker and you can see it's position, size, and style. You can change the default color by changing the hex code in the createColorPicker function.
+  colorPicker = createColorPicker("#7D1EBC"); // default color
+  colorPicker.position(width / 2 + 353, height - 64);
+  colorPicker.style("width", "45px");
+  colorPicker.style("height", "45px");
+  colorPicker.style("border-radius", "12px");
+  colorPicker.style("border", "2.5px solid #7D1EBC");
+  colorPicker.style("cursor", "pointer");
+  colorPicker.style("padding", "0");
+  colorPicker.style("background", "none");
 }
+
 // Save the current canvas to file as png
 function saveToFile() {
 saveCanvas('Flower Bouquet', 'png')
@@ -118,13 +131,19 @@ function draw() {
   if (mouseIsPressed) {
     click();
   }
-//Message display
-fill("#C01B34");
-textSize(30);
-textAlign(CENTER);
-textStyle("bold", "sans-serif");
-textFont('Helvetica');
-text(messageText, width / 2, 80);
+//this is where the message will be displayed on the canvas after the user submits it. You can adjust the position, size, and style of the text as needed.
+  if (currentMessage !== "") {
+    //this pulls in the selected color
+    fill(currentColor);
+    noStroke();
+    textSize(30);
+    textFont('Helvetica');
+    textStyle('bold');
+    textAlign(CENTER, TOP);
+    textWrap(WORD);
+    //Text Wrap , box
+    text(currentMessage, width / 2-350, 40,700);
+  }
 
 }
 //Generate frames when pressed
@@ -149,7 +168,13 @@ function nextGenerate() {
 }
 //Message Output
 function greet() {
-  messageText = input.value();
+  //const message = input.value();
+  currentMessage = input.value();
+  currentColor = colorPicker.value();
+  //greeting.html(currentMessage);
+  console.log("chosen color:", currentColor); // add this
+  input.value(""); // I added quotes here to clear the input field after submission
+
 }
 
 
