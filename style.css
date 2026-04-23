@@ -5,6 +5,34 @@ html, body {
 
 canvas {
   display: block;
+}
+
+.btn {
+  position: absolute;
+  left: 1320px;
+  top: 830px;
+  text-decoration: none;
+  color: #7A87ED;
+  font-family: sans-serif;
+  font-weight: 800;
+  border-width: 2.5px;
+  border-style: solid;
+  border-color:#7A87ED;
+  padding: 8px 18px;
+  background-color: #F8EFDD;
+
+  border-radius: 12px;
+
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  20%  { opacity: 5; }
+  40%  { opacity: 0; }
+  60%  { opacity: 5; }
+  80% { opacity: 0; }
+  100% { opacity: 5; }
 
 }
 .btn2 {
@@ -74,19 +102,8 @@ canvas {
   border-color:#7D1EBC;
   padding: 8px 18px;
   background-color: #F8EFDD;
-    border-radius: 12px;
-}
-.greeting {
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-family: Helvetica, sans-serif;
-    color: #7D1EBC;
-    input[type="text"] {
-    background-color: #f9f9f9;
-}
+  border-radius: 12px;
+
     
 }
 .btn5 {

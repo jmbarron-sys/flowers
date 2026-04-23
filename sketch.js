@@ -48,11 +48,6 @@ function draw() {
   image(img8,420,680,140,200)
     //Cursor
  image(img9, mouseX, mouseY, 80,80); 
-
-        //displays the x and y position of the mouse on the canvas
-  fill(255) //white text
-  textSize (12);
-  text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
  //Triangle button
   fill('purple');
   noStroke();

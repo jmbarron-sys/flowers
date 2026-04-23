@@ -17,6 +17,8 @@ let purple2 = {
   x3: 91,
   y3: 490 
 }
+//Message Greeting
+let messageText = "Your message will appear here";
 
 function preload () {
   img = loadImage ('img/background.png');
@@ -47,6 +49,19 @@ function preload () {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noCursor();
+//Download Button
+  removeBtn = createButton("Download");
+  removeBtn.position(30, 880);
+  removeBtn.size (100,46);
+  removeBtn.mousePressed(saveToFile);
+  removeBtn.style("color", "#7D1EBC");
+  removeBtn.style("background-color", "#F8EFDD");
+  removeBtn.style("border", "2.5px solid #7D1EBC");
+  removeBtn.style("border-radius", "12px");
+  removeBtn.style("font-family", "sans-serif");
+  removeBtn.style("font-weight", "800");
+  removeBtn.style("text-decoration", "none");
+  removeBtn.style("padding", "8px 18px");
 //Pick a Frame
 btn3 = createButton("Select a frame");
 btn3.mousePressed(nextGenerate1);
@@ -63,12 +78,14 @@ input.style("outline", "none");
 input.size(200, 40);
 //Submit button
 btn4 = createButton('Submit');
-  btn4.class("btn4");
-  btn4.mousePressed(greet);
-//Message display
-  greeting = createElement('h2', 'Your message...');
-  greeting.class("greeting");
+btn4.class("btn4");
+btn4.mousePressed(greet);
 }
+// Save the current canvas to file as png
+function saveToFile() {
+saveCanvas('Flower Bouquet', 'png')
+}
+
 
 function draw() {
   background(220);
@@ -87,31 +104,30 @@ function draw() {
   //Flowers index
   image(flowers[index2],675,250,220,400)
 
-  //X,Y
-  fill("black") 
-  noStroke();
-  textSize (12);
-  text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
-
-   fill('#7A87ED');
+  //Blue footer
+  fill('#7A87ED');
   rectMode(CORNER); // default: CORNER
   rect(0, windowHeight-90, windowWidth,90);
-
   //Triangle button
   fill('purple');
   noStroke();
   triangle(purple2.x1, purple2.y1, purple2.x2, purple2.y2, purple2.x3, purple2.y3);
   //Cursor
- image(img6, mouseX, mouseY, 80,80);
+  image(img6, mouseX, mouseY, 80,80);
   
   if (mouseIsPressed) {
     click();
   }
+//Message display
+fill("#C01B34");
+textSize(30);
+textAlign(CENTER);
+textStyle("bold", "sans-serif");
+textFont('Helvetica');
+text(messageText, width / 2, 80);
 
-
-  
 }
-  //Generate frames when pressed
+//Generate frames when pressed
 function nextGenerate1() {
   index1 = index1 + 1;
   if (index1 == mainframe.length) {
@@ -119,11 +135,11 @@ function nextGenerate1() {
   }
 }
 function mousePressed() {
-  // Flower click area
+// Flower click area
   if (mouseX > 650 && mouseX < 820 && mouseY > 230 && mouseY < 690) {
     nextGenerate();
   }    
-      //Generate flowers when pressed
+//Generate flowers when pressed
 function nextGenerate() {
   index2 = index2 + 1;
   if (index2 == flowers.length) {
@@ -132,20 +148,11 @@ function nextGenerate() {
  }
 }
 //Message Output
- function greet() {
-  const message = input.value();
-  greeting.html(message);
-  input.value();
-
-  for (let i = 0; i < 200; i++) {
-    push();
-    fill("#F8EFDD");
-    translate(random(width), random(height));
-    rotate(random(2 * PI));
-    text(message, 0, 0);
-    pop();
-  }
+function greet() {
+  messageText = input.value();
 }
+
+
 
 function click() {
   let button2 = dist(mouseX, mouseY, purple2.x1, purple2.y1);
@@ -154,4 +161,12 @@ function click() {
    window.location.replace("fourth.html");
     console.log("click!");
   }
+}
+  function putImage() {
+  var canvas = document.getElementById("canvasSignature");
+
+  var image = canvas.toDataURL("image/png")
+    .replace("image/png", "image/octet-stream");
+
+  window.location.href = image;
 }

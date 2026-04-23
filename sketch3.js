@@ -71,10 +71,6 @@ function draw() {
       //X,Y
   fill("black") //white text
   noStroke();
-  textSize (12);
-  text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
-  //sets the x coordinate to the frame count
-  //resets at left edge
 
 //Sun rotating
 push();
@@ -86,6 +82,8 @@ pop();
 
 angle = angle + .2;
 
+  //sets the x coordinate to the frame count
+  //resets at left edge
   cloudOneX = frameCount % width
   //Cloud
   image(img4,cloudOneX,40,400,200);

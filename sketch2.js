@@ -76,12 +76,6 @@ function draw() {
   //House
   image(img3,900,380,350,500)
   
-    //X,Y
-  fill("black") //white text
-  noStroke();
-  textSize (12);
-  text(`mouseX: ${mouseX}, mouseY: ${mouseY}`, 20, 20);
-  
   //sets the x coordinate to the frame count
   //resets at left edge
   cloudOneX = frameCount % width
