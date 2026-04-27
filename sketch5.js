@@ -17,6 +17,7 @@ let purple2 = {
   x3: 91,
   y3: 490 
 }
+let showText = true;
 //this is a global variable for your color picker for your text color and your message
 let colorPicker;
 let currentMessage = "Your message will appear here";
@@ -96,6 +97,9 @@ btn4.mousePressed(greet);
 
 // Save the current canvas to file as png
 function saveToFile() {
+  //Make text dissappear
+  showText = false; 
+  redraw(); 
 saveCanvas('Flower Bouquet', 'png')
 }
 
@@ -144,7 +148,14 @@ function draw() {
     //Text Wrap , box
     text(currentMessage, width / 2-350, 40,700);
   }
+  //Make text appear until download is pressed
+  if (showText == true) {
+  fill('#7D1EBC');
+  textSize(18);
+  textAlign(CENTER);
 
+  text("Click on bouquet to customize", 436, 895);
+}
 }
 //Generate frames when pressed
 function nextGenerate1() {
@@ -174,7 +185,6 @@ function greet() {
   //greeting.html(currentMessage);
   console.log("chosen color:", currentColor); // add this
   input.value(""); // I added quotes here to clear the input field after submission
-
 }
 
 
