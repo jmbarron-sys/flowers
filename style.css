@@ -134,3 +134,12 @@ canvas {
   80% { opacity: 0; }
   100% { opacity: 5; }
 }
+h2 {
+  color: #F8EFDD;
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 24px;
+  position: absolute;
+  top: 870px;
+  left: 17%;
+}
